@@ -27,7 +27,19 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function.
-    // pub fn transformer(input: ???) -> ??? { ??? }
+    pub fn transformer(input: &str,cmd : Command)-> String { 
+        match cmd{
+            Command::Uppercase => input.to_uppercase(),
+            Command::Trim => input.trim().to_owned(),
+            Command::Append(x) => {
+                let mut res = input.to_owned();
+                for _ in 0..x {
+                    res.push_str("bar");
+                }
+                res
+            }
+        }
+     }
 }
 
 fn main() {
